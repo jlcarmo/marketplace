@@ -269,7 +269,7 @@ Our RESTful server connects to existing OLAP systems, which then powers user-fri
         <company>Analytical Labs</company>
         <companyUrl>http://analytical-labs.com/</companyUrl>
         <companyLogo>http://www.webdetails.pt/ficheiros/saiku.png</companyLogo>
-        <license>APL 2.0</license>        
+        <license>ASL 2.0</license>        
         <versions>
             <version branch="TRUNK">
                 <version>Trunk</version>
