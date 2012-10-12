@@ -60,6 +60,12 @@
 
 
 
+		<git command="checkout">
+			<args>
+				<arg value="metadata" />
+			</args>
+		</git>
+
 
 		<!--Replace on xml-->
 		 <xmltask source="PentahoMarketplacePlugins.xml" dest="PentahoMarketplacePlugins.xml"> 
