@@ -227,6 +227,9 @@ public class MarketplaceService {
             return new StatusMessage("NO_PLUGIN", "Plugin ID contains an illegal character");
         }
 
+       // before deletion, close class loader
+        closeClassLoader(toInstall.getId());        
+        
 
         String downloadUrl, samplesDownloadUrl, availableVersion;
 
