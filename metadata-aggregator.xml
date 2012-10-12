@@ -109,8 +109,7 @@
 		</git>
 		<git command="push">
            <args>
-                <arg value="origin"/>
-                <arg value="metadata"/>
+                <arg value="origin metadata"/>
             </args>
         </git>		
 		
