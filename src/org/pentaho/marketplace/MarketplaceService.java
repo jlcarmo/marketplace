@@ -58,6 +58,8 @@ import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathFactory;
 import org.apache.commons.io.filefilter.DirectoryFileFilter;
+import org.pentaho.telemetry.BaPluginTelemetry;
+import org.pentaho.telemetry.TelemetryHelper.TelemetryEventType;
 
 
 public class MarketplaceService {
@@ -199,6 +201,16 @@ public class MarketplaceService {
             logger.error(e.getMessage(), e);
         }
 
+        
+        
+        BaPluginTelemetry telemetryEvent = new BaPluginTelemetry(PLUGIN_NAME);
+        Map<String, String> extraInfo = new HashMap<String, String>(1);
+        extraInfo.put("uninstalledPlugin", toUninstall.getId());
+        extraInfo.put("uninstalledPluginVersion", toUninstall.getInstalledVersion());
+        extraInfo.put("uninstalledPluginBranch", toUninstall.getInstalledBranch());
+        telemetryEvent.sendTelemetryRequest(TelemetryEventType.REMOVAL, extraInfo);
+        
+        
         return new StatusMessage("PLUGIN_UNINSTALLED", toUninstall.getName() + " was successfully uninstalled.  Please restart your BI Server.");
 
     }
@@ -288,6 +300,15 @@ public class MarketplaceService {
             logger.error(e.getMessage(), e);
         }
 
+        
+        BaPluginTelemetry telemetryEvent = new BaPluginTelemetry(PLUGIN_NAME);
+        Map<String, String> extraInfo = new HashMap<String, String>(1);
+        extraInfo.put("installedPlugin", toInstall.getId());
+        extraInfo.put("installedVersion", availableVersion);
+        extraInfo.put("installedBranch", versionBranch);
+        
+        telemetryEvent.sendTelemetryRequest(TelemetryEventType.INSTALLATION, extraInfo);
+        
         return new StatusMessage("PLUGIN_INSTALLED", toInstall.getName() + " was successfully installed.  Please restart your BI Server. \n" + toInstall.getInstallationNotes());
     }
 
@@ -400,7 +421,7 @@ public class MarketplaceService {
         }
 
         if (site == null || "".equals(site)) {
-            site = "https://raw.github.com/webdetails/marketplace/master/PentahoMarketplacePlugins.xml";
+            site = "https://raw.github.com/webdetails/marketplace/metadata/PentahoMarketplacePlugins.xml";
         }
 
         site = resolveVersion(site);
@@ -471,6 +492,8 @@ public class MarketplaceService {
                 plugin.setLearnMoreUrl(getElementChildValue(element, "learnMoreUrl"));
                 plugin.setName(getElementChildValue(element, "name"));
                 plugin.setInstallationNotes(getElementChildValue(element, "installationNotes"));
+                plugin.setLicense(getElementChildValue(element, "license"));
+                plugin.setDependencies(getElementChildValue(element, "dependencies"));
 
                 //NodeList availableVersions = element.getElementsByTagName("version");
                 NodeList availableVersions = (NodeList) xpath.evaluate("versions/version", element, XPathConstants.NODESET);
@@ -487,9 +510,23 @@ public class MarketplaceService {
                                 getElementChildValue(versionElement, "samplesDownloadUrl"),
                                 getElementChildValue(versionElement, "description"),
                                 getElementChildValue(versionElement, "changelog"),
-                                getElementChildValue(versionElement, "buildId"));
+                                getElementChildValue(versionElement, "buildId"),
+                                getElementChildValue(versionElement, "releaseDate"));
+                               
                     }
                     plugin.setVersions(versions);
+                }
+                
+                NodeList availableScreenshots = (NodeList) xpath.evaluate("screenshots/screenshot", element, XPathConstants.NODESET);
+                if (availableScreenshots.getLength() > 0) {
+                    String[] screenshots = new String[availableScreenshots.getLength()];
+                    
+                    for (int j = 0; j < availableScreenshots.getLength(); j++) {
+                        Element screenshotElement = (Element) availableScreenshots.item(j);
+                        screenshots[j] = screenshotElement.getTextContent();
+                    }
+                    
+                    plugin.setScreenshots(screenshots);
                 }
 
                 pluginArr[i] = plugin;
