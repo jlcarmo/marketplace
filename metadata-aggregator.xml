@@ -113,11 +113,7 @@
 				<arg value="-am 'New version of plugin metadata'" />
 			</args>
 		</git>
-		<git command="push">
-           <args>
-                <arg value="origin metadata"/>
-            </args>
-        </git>		
+		<git command="push"/>
 		
 		
 		
