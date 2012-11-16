@@ -52,7 +52,7 @@ CDE and the technology underneath (CDF, CDA and CCC) allows to develop and deplo
 		<downloadUrl>http://ci.analytical-labs.com/job/Webdetails-CDE/lastSuccessfulBuild/artifact/server/plugin/dist/pentaho-cdf-dd-TRUNK-SNAPSHOT.zip</downloadUrl>
 		<samplesDownloadUrl>http://ci.analytical-labs.com/job/Webdetails-CDE/lastSuccessfulBuild/artifact/server/plugin/dist/pentaho-cdf-dd-solution-TRUNK-SNAPSHOT.zip</samplesDownloadUrl>
 		<description>Trunk Snapshot. Install at your own risk....</description>
-		<buildId>344</buildId>
+		<buildId>345</buildId>
 		</version>    	
 		</versions>
 		
@@ -177,7 +177,7 @@ CDE and the technology underneath (CDF, CDA and CCC) allows to develop and deplo
 		<name>Trunk</name>
 		<downloadUrl>http://ci.analytical-labs.com/job/Webdetails-CDV/lastSuccessfulBuild/artifact/dist/cdv-TRUNK-SNAPSHOT.zip</downloadUrl>
 		<description>Trunk snapshot. install at your own risk...</description>
-		<buildId>126</buildId>
+		<buildId>127</buildId>
 		</version>    	
 		
 					<version branch="STABLE">
@@ -211,7 +211,7 @@ CDE and the technology underneath (CDF, CDA and CCC) allows to develop and deplo
 		<name>Trunk</name>
 		<downloadUrl>http://ci.analytical-labs.com/job/Webdetails-CDB/lastSuccessfulBuild/artifact/dist/cdb-TRUNK-SNAPSHOT.zip</downloadUrl>
 		<description>Trunk Snapshot. Install at your own risk....</description>
-		<buildId>87</buildId>
+		<buildId>88</buildId>
 		</version>    			
 					<version branch="STABLE">
 		<version>12.10.23</version>
