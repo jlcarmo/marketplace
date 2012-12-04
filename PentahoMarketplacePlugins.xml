@@ -84,13 +84,14 @@ CDE and the technology underneath (CDF, CDA and CCC) allows to develop and deplo
 		<description>12.10.17 release.</description>
 		<buildId/>
 		</version>    	                    
-			<version branch="TRUNK">
+			<version>
+	    <branch>TRUNK</branch>
 		<version>TRUNK-SNAPSHOT</version>
 		<name>Trunk</name>
-		<downloadUrl>http://ci.analytical-labs.com/job/Webdetails-CDA/lastSuccessfulBuild/artifact/dist/cda-TRUNK-SNAPSHOT.zip</downloadUrl>
-		<samplesDownloadUrl>http://ci.analytical-labs.com/job/Webdetails-CDA/lastSuccessfulBuild/artifact/dist/cda-samples-TRUNK-SNAPSHOT.zip</samplesDownloadUrl>
-		<description>Trunk Snapshot. Install at your own risk....</description>
-		<buildId>213</buildId>
+		<package_url>http://ci.analytical-labs.com/job/Webdetails-CDA/lastSuccessfulBuild/artifact/dist/cda-TRUNK-SNAPSHOT.zip</package_url>
+		<samples_url>http://ci.analytical-labs.com/job/Webdetails-CDA/lastSuccessfulBuild/artifact/dist/cda-samples-TRUNK-SNAPSHOT.zip</samples_url>
+		<description>Trunk Snapshot. Get the latest, edgy, still work in progress features here...</description>
+		<build_id>215</build_id>
 		</version>    	
 		</versions>
         
@@ -175,12 +176,13 @@ CDE and the technology underneath (CDF, CDA and CCC) allows to develop and deplo
                 <license>MPL 2.0</license>
         <dependencies>CDE, CDA, CDF</dependencies>
 	<versions>
-			<version branch="TRUNK">
+			<version>
+	    <branch>TRUNK</branch>
 		<version>TRUNK-SNAPSHOT</version>
 		<name>Trunk</name>
-		<downloadUrl>http://ci.analytical-labs.com/job/Webdetails-CDV/lastSuccessfulBuild/artifact/dist/cdv-TRUNK-SNAPSHOT.zip</downloadUrl>
-		<description>Trunk snapshot. install at your own risk...</description>
-		<buildId>127</buildId>
+		<package_url>http://ci.analytical-labs.com/job/Webdetails-CDV/lastSuccessfulBuild/artifact/dist/cdv-TRUNK-SNAPSHOT.zip</package_url>
+		<description>Trunk Snapshot. Get the latest, edgy, still work in progress features here...</description>
+		<build_id>128</build_id>
 		</version>    	
 		
 					<version branch="STABLE">
@@ -209,19 +211,21 @@ CDE and the technology underneath (CDF, CDA and CCC) allows to develop and deplo
         
         
 	<versions>
-			<version branch="TRUNK">
+			<version>
+	    <branch>TRUNK</branch>
 		<version>TRUNK-SNAPSHOT</version>
 		<name>Trunk</name>
-		<downloadUrl>http://ci.analytical-labs.com/job/Webdetails-CDB/lastSuccessfulBuild/artifact/dist/cdb-TRUNK-SNAPSHOT.zip</downloadUrl>
-		<description>Trunk Snapshot. Install at your own risk....</description>
-		<buildId>89</buildId>
+		<package_url>http://ci.analytical-labs.com/job/Webdetails-CDB/lastSuccessfulBuild/artifact/dist/cdb-TRUNK-SNAPSHOT.zip</package_url>
+		<description>Trunk Snapshot. Get the latest, edgy, still work in progress features here...</description>
+		<build_id>90</build_id>
 		</version>    			
-					<version branch="STABLE">
-		<version>12.10.23</version>
+					<version>
+        <branch>STABLE</branch>
+		<version>12.12.04</version>
 		<name>Stable</name>
-		<downloadUrl>http://ci.analytical-labs.com/job/Webdetails-CDB-Release/lastSuccessfulBuild/artifact/dist/cdb-12.10.23.zip</downloadUrl>
-		<description>12.10.23 release.</description>
-		<buildId/>
+		<package_url>http://ci.analytical-labs.com/job/Webdetails-CDB-Release/lastSuccessfulBuild/artifact/dist/cdb-12.12.04.zip</package_url>
+		<description>12.12.04 release.</description>
+		<build_id/>
 		</version>
 		
 		</versions>                       
@@ -241,19 +245,21 @@ CDE and the technology underneath (CDF, CDA and CCC) allows to develop and deplo
         <license>MPL 2.0</license>
         <dependencies>CDE, CDA, CDF</dependencies>        
 	<versions>
-			<version branch="TRUNK">
+			<version>
+	    <branch>TRUNK</branch>
 		<version>TRUNK-SNAPSHOT</version>
 		<name>Trunk</name>
-		<downloadUrl>http://ci.analytical-labs.com/job/Webdetails-CDC/lastSuccessfulBuild/artifact/dist/cdc-TRUNK-SNAPSHOT.zip</downloadUrl>
-		<description>Trunk Snapshot. Install at your own risk....</description>
-		<buildId>124</buildId>
+		<package_url>http://ci.analytical-labs.com/job/Webdetails-CDC/lastSuccessfulBuild/artifact/dist/cdc-TRUNK-SNAPSHOT.zip</package_url>
+		<description>Trunk Snapshot. Get the latest, edgy, still work in progress features here...</description>
+		<build_id>125</build_id>
 		</version>    			
-					<version branch="STABLE">
-		<version>12.10.23</version>
+					<version>
+	    <branch>STABLE</branch>
+		<version>12.12.04</version>
 		<name>Stable</name>
-		<downloadUrl>http://ci.analytical-labs.com/job/Webdetails-CDC-Release/lastSuccessfulBuild/artifact/dist/cdc-12.10.23.zip</downloadUrl>
-		<description>12.10.23 release.</description>
-		<buildId/>
+		<package_url>http://ci.analytical-labs.com/job/Webdetails-CDC-Release/lastSuccessfulBuild/artifact/dist/cdc-12.12.04.zip</package_url>
+		<description>12.12.04 release.</description>
+		<build_id/>
 		</version>
 		
 		</versions>                       
