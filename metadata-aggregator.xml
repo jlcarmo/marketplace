@@ -59,16 +59,24 @@
 		<get src="http://ci.analytical-labs.com/job/Webdetails-CDC-Release/lastSuccessfulBuild/artifact/dist/marketplace.xml" dest=".tmp/cdc-release.xml"/>						
 
 
+        <git command="clone">
+            <args>
+                <arg value='git@github.com:pentaho/marketplace-metadata.git' />
+                <arg value='metadata' />
+            </args>
+        </git>
 
+
+<!--
 		<git command="checkout">
 			<args>
 				<arg value="metadata" />
 			</args>
 		</git>
-
+-->
 
 		<!--Replace on xml-->
-		 <xmltask source="PentahoMarketplacePlugins.xml" dest="PentahoMarketplacePlugins.xml"> 
+		 <xmltask source="metadata/marketplace.xml" dest="metadata/marketplace.xml"> 
 		   <replace path="/availablePlugins/plugin[@id='cda']/versions/version[@branch='TRUNK']" 
         	 withFile=".tmp/cda-trunk.xml"/> 
 		   <replace path="/availablePlugins/plugin[@id='cda']/versions/version[@branch='STABLE']" 
@@ -105,7 +113,7 @@
    
 		<git command="add">
 			<args>
-				<arg value="PentahoMarketplacePlugins.xml" />
+				<arg value="marketplace.xml" />
 			</args>
 		</git>
 		<git command="commit">
@@ -119,6 +127,7 @@
 		
 		<!--Delete .tmp folder-->
 		<delete dir='.tmp'/>
+		<delete dir='metadata'/>
 	</target>
 
 </project>
