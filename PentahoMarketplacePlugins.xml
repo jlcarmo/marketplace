@@ -153,12 +153,13 @@ CDE and the technology underneath (CDF, CDA and CCC) allows to develop and deplo
 		<buildId>94</buildId>
 		</version>    	
 		
-					<version branch="STABLE">
-		<version>12.10.23</version>
+					<version>
+	    <branch>STABLE</branch>
+		<version>12.12.04</version>
 		<name>Stable</name>
-		<downloadUrl>http://ci.analytical-labs.com/job/Webdetails-CGG-Release/lastSuccessfulBuild/artifact/dist/cgg-12.10.23.zip</downloadUrl>
-		<description>Release 12.10.23</description>
-		<buildId/>
+		<package_url>http://ci.analytical-labs.com/job/Webdetails-CGG-Release/lastSuccessfulBuild/artifact/dist/cgg-12.12.04.zip</package_url>
+		<description>12.12.04 release.</description>
+		<build_id/>
 		</version>
 		
 		</versions>                       
