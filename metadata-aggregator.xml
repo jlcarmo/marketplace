@@ -59,8 +59,9 @@
 		<get src="http://ci.analytical-labs.com/job/Webdetails-CDC-Release/lastSuccessfulBuild/artifact/dist/marketplace.xml" dest=".tmp/cdc-release.xml"/>						
 
 
-        <git command="clone">
+        <git command="submodule">
             <args>
+                            <arg value='add' />
                 <arg value='git@github.com:pentaho/marketplace-metadata.git' />
                 <arg value='metadata' />
             </args>
@@ -113,16 +114,20 @@
    
 		<git command="add">
 			<args>
-				<arg value="marketplace.xml" />
+				<arg value="metadata/marketplace.xml" />
 			</args>
 		</git>
+
+
 		<git command="commit">
 			<args>
 				<arg value="-am 'New version of plugin metadata'" />
 			</args>
 		</git>
-		<git command="push"/>
-		
+	
+	<!--
+	<git command="push"/>
+	-->	
 		
 		
 		<!--Delete .tmp folder-->
