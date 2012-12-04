@@ -59,11 +59,10 @@
 		<get src="http://ci.analytical-labs.com/job/Webdetails-CDC-Release/lastSuccessfulBuild/artifact/dist/marketplace.xml" dest=".tmp/cdc-release.xml"/>						
 
 
-        <git command="submodule">
+        <git command="clone">
             <args>
-                            <arg value='add' />
                 <arg value='git@github.com:pentaho/marketplace-metadata.git' />
-                <arg value='metadata' />
+                <arg value='../pentaho_metadata' />
             </args>
         </git>
 
@@ -77,34 +76,34 @@
 -->
 
 		<!--Replace on xml-->
-		 <xmltask source="metadata/marketplace.xml" dest="metadata/marketplace.xml"> 
-		   <replace path="/availablePlugins/plugin[@id='cda']/versions/version[@branch='TRUNK']" 
+		 <xmltask source="../pentaho_metadata/marketplace.xml" dest="../pentaho_metadata/marketplace.xml"> 
+		   <replace path="/market/market_entry[id='cda']/versions/version[branch='TRUNK']" 
         	 withFile=".tmp/cda-trunk.xml"/> 
-		   <replace path="/availablePlugins/plugin[@id='cda']/versions/version[@branch='STABLE']" 
+		   <replace path="/market/market_entry[id='cda']/versions/version[branch='STABLE']" 
         	 withFile=".tmp/cda-release.xml"/> 
-		   <replace path="/availablePlugins/plugin[@id='cgg']/versions/version[@branch='TRUNK']" 
+		   <replace path="/market/market_entry[id='cgg']/versions/version[branch='TRUNK']" 
         	 withFile=".tmp/cgg-trunk.xml"/>         	 
-		   <replace path="/availablePlugins/plugin[@id='cgg']/versions/version[@branch='STABLE']" 
+		   <replace path="/market/market_entry[id='cgg']/versions/version[branch='STABLE']" 
         	 withFile=".tmp/cgg-release.xml"/>         	         	 
-		   <replace path="/availablePlugins/plugin[@id='pentaho-cdf']/versions/version[@branch='TRUNK']" 
+		   <replace path="/market/market_entry[id='pentaho-cdf']/versions/version[branch='TRUNK']" 
         	 withFile=".tmp/cdf-trunk.xml"/>         	 
-		   <replace path="/availablePlugins/plugin[@id='pentaho-cdf']/versions/version[@branch='STABLE']" 
+		   <replace path="/market/market_entry[id='pentaho-cdf']/versions/version[branch='STABLE']" 
         	 withFile=".tmp/cdf-release.xml"/>         	         	 
-		   <replace path="/availablePlugins/plugin[@id='pentaho-cdf-dd']/versions/version[@branch='TRUNK']" 
+		   <replace path="/market/market_entry[id='pentaho-cdf-dd']/versions/version[branch='TRUNK']" 
         	 withFile=".tmp/cde-trunk.xml"/>         	 
-		   <replace path="/availablePlugins/plugin[@id='pentaho-cdf-dd']/versions/version[@branch='STABLE']" 
+		   <replace path="/market/market_entry[id='pentaho-cdf-dd']/versions/version[branch='STABLE']" 
         	 withFile=".tmp/cde-release.xml"/>         	 
-		   <replace path="/availablePlugins/plugin[@id='cdv']/versions/version[@branch='TRUNK']" 
+		   <replace path="/market/market_entry[id='cdv']/versions/version[branch='TRUNK']" 
         	 withFile=".tmp/cdv-trunk.xml"/>         	 
-		   <replace path="/availablePlugins/plugin[@id='cdv']/versions/version[@branch='STABLE']" 
+		   <replace path="/market/market_entry[id='cdv']/versions/version[branch='STABLE']" 
         	 withFile=".tmp/cdv-release.xml"/>         	 
-		   <replace path="/availablePlugins/plugin[@id='cdb']/versions/version[@branch='TRUNK']" 
+		   <replace path="/market/market_entry[id='cdb']/versions/version[branch='TRUNK']" 
         	 withFile=".tmp/cdb-trunk.xml"/>         	 
-		   <replace path="/availablePlugins/plugin[@id='cdb']/versions/version[@branch='STABLE']" 
+		   <replace path="/market/market_entry[id='cdb']/versions/version[branch='STABLE']" 
         	 withFile=".tmp/cdb-release.xml"/>         	 
-		   <replace path="/availablePlugins/plugin[@id='cdc']/versions/version[@branch='TRUNK']" 
+		   <replace path="/market/market_entry[id='cdc']/versions/version[branch='TRUNK']" 
         	 withFile=".tmp/cdc-trunk.xml"/>         	 
-		   <replace path="/availablePlugins/plugin[@id='cdc']/versions/version[@branch='STABLE']" 
+		   <replace path="/market/market_entry[id='cdc']/versions/version[branch='STABLE']" 
         	 withFile=".tmp/cdc-release.xml"/>         	 
         	 
         	 
@@ -112,27 +111,28 @@
 		
 
    
-		<git command="add">
+		<git command="add" dir='../pentaho_metadata'>
 			<args>
-				<arg value="metadata/marketplace.xml" />
+				<arg value="marketplace.xml" />
 			</args>
 		</git>
 
 
-		<git command="commit">
+		<git command="commit"  dir='../pentaho_metadata'>
 			<args>
 				<arg value="-am 'New version of plugin metadata'" />
 			</args>
 		</git>
 	
 	<!--
-	<git command="push"/>
+	<git command="push"  dir='../pentaho_metadata'>
+    </git>
 	-->	
 		
 		
 		<!--Delete .tmp folder-->
 		<delete dir='.tmp'/>
-		<delete dir='metadata'/>
+		<delete dir='../pentaho_metadata'/> 
 	</target>
 
 </project>
