@@ -110,13 +110,14 @@ CDE and the technology underneath (CDF, CDA and CCC) allows to develop and deplo
                 <license>MPL 2.0</license>
         <companyLogo>http://www.webdetails.pt/ficheiros/wd_logo.png</companyLogo>
 	<versions>
-			<version branch="STABLE">
-		<version>12.11.13</version>
+			<version>
+	    <branch>STABLE</branch>
+		<version>12.12.04</version>
 		<name>Stable</name>
-		<downloadUrl>http://ci.analytical-labs.com/job/Webdetails-CDF-Release/lastSuccessfulBuild/artifact/bi-platform-v2-plugin/dist/pentaho-cdf-12.11.13.zip</downloadUrl>
-		<samplesDownloadUrl>http://ci.analytical-labs.com/job/Webdetails-CDF-Release/lastSuccessfulBuild/artifact/bi-platform-v2-plugin/dist/pentaho-cdf-samples-12.11.13.zip</samplesDownloadUrl>
+		<package_url>http://ci.analytical-labs.com/job/Webdetails-CDF-Release/lastSuccessfulBuild/artifact/bi-platform-v2-plugin/dist/pentaho-cdf-12.12.04.zip</package_url>
+		<samples_url>http://ci.analytical-labs.com/job/Webdetails-CDF-Release/lastSuccessfulBuild/artifact/bi-platform-v2-plugin/dist/pentaho-cdf-samples-12.12.04.zip</samples_url>
 		<description>Stable Release</description>
-		<buildId/>
+		<build_id/>
 		</version>    	                    
 			<version>
 	    <branch>TRUNK</branch>
