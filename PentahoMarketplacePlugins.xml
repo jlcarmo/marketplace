@@ -38,21 +38,23 @@ CDE and the technology underneath (CDF, CDA and CCC) allows to develop and deplo
         <dependencies>CDF, CDA</dependencies>
         <license>MPL 2.0</license>
 		<versions>
-			<version branch="STABLE">
-		<version>12.10.17</version>
+			<version>
+        <branch>STABLE</branch>
+		<version>12.12.04</version>
 		<name>Stable</name>
-		<downloadUrl>http://ci.analytical-labs.com/job/Webdetails-CDE-Release/lastSuccessfulBuild/artifact/server/plugin/dist/pentaho-cdf-dd-12.10.17.zip</downloadUrl>
-		<samplesDownloadUrl>http://ci.analytical-labs.com/job/Webdetails-CDE/lastSuccessfulBuild/artifact/server/plugin/dist/pentaho-cdf-dd-solution-12.10.17.zip</samplesDownloadUrl>
-		<description>Release 12.10.17</description>
-		<buildId/>
+		<package_url>http://ci.analytical-labs.com/job/Webdetails-CDE-Release/lastSuccessfulBuild/artifact/server/plugin/dist/pentaho-cdf-dd-12.12.04.zip</package_url>
+		<samples_url>http://ci.analytical-labs.com/job/Webdetails-CDE/lastSuccessfulBuild/artifact/server/plugin/dist/pentaho-cdf-dd-solution-12.12.04.zip</samples_url>
+		<description>Release 12.12.04</description>
+		<build_id/>
 		</version>    	                    
-			<version branch="TRUNK">
+			<version>
+        <branch>TRUNK</branch>
 		<version>TRUNK-SNAPSHOT</version>
 		<name>Trunk</name>
-		<downloadUrl>http://ci.analytical-labs.com/job/Webdetails-CDE/lastSuccessfulBuild/artifact/server/plugin/dist/pentaho-cdf-dd-TRUNK-SNAPSHOT.zip</downloadUrl>
-		<samplesDownloadUrl>http://ci.analytical-labs.com/job/Webdetails-CDE/lastSuccessfulBuild/artifact/server/plugin/dist/pentaho-cdf-dd-solution-TRUNK-SNAPSHOT.zip</samplesDownloadUrl>
-		<description>Trunk Snapshot. Install at your own risk....</description>
-		<buildId>353</buildId>
+		<package_url> http://ci.analytical-labs.com/job/Webdetails-CDE/lastSuccessfulBuild/artifact/server/plugin/dist/pentaho-cdf-dd-TRUNK-SNAPSHOT.zip </package_url>
+		<samples_url>http://ci.analytical-labs.com/job/Webdetails-CDE/lastSuccessfulBuild/artifact/server/plugin/dist/pentaho-cdf-dd-solution-TRUNK-SNAPSHOT.zip </samples_url>
+		<description>Trunk Snapshot. Get the latest, edgy, still work in progress features here....</description>
+		<build_id>354</build_id>
 		</version>    	
 		</versions>
 		
