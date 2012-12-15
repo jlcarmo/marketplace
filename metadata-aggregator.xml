@@ -76,7 +76,7 @@
 -->
 
 		<!--Replace on xml-->
-		 <xmltask source="../pentaho_metadata/marketplace.xml" dest="../pentaho_metadata/marketplace.xml"> 
+		 <xmltask source="../pentaho_metadata/marketplace.xml" dest="../pentaho_metadata/marketplace.xml" encoding='UTF-8'> 
 		   <replace path="/market/market_entry[id='cda']/versions/version[branch='TRUNK']" 
         	 withFile=".tmp/cda-trunk.xml"/> 
 		   <replace path="/market/market_entry[id='cda']/versions/version[branch='STABLE']" 
@@ -132,7 +132,7 @@
 		
 		<!--Delete .tmp folder-->
 		<delete dir='.tmp'/>
-		<delete dir='../pentaho_metadata'/> 
+		<delete dir='../pentaho_metadata'/>  
 	</target>
 
 </project>
