@@ -21,10 +21,10 @@
             
             </taskdef>
 
-    <property name="projects" value="cda,cgg,cdf,cde,cdv,sparkl,marketplace" description="Projects that already have a Pentaho 5 version"/>
-    <property name="projects-4-only" value="cdc,cdb" description="Projects that do not have a Pentaho 5 version"/>    
+    <property name="projects" value="cda,cgg,pentaho-cdf,pentaho-cdf-dd,cdv,sparkl" description="Projects that already have a Pentaho 5 version"/>
 
-
+<!--    <property name="projects-4-only" value="cdc,cdb" description="Projects that do not have a Pentaho 5 version"/>     -->
+    <property name="projects-4-only" value="" description="Projects that do not have a Pentaho 5 version"/> 
 
 	<macrodef name="git">
 		<attribute name="command" />
@@ -57,12 +57,12 @@
 		<get src="http://ci.pentaho.com/job/webdetails-cgg/lastSuccessfulBuild/artifact/dist/marketplace.xml" dest=".tmp/cgg-trunk5.xml"/>		
 
         <!-- CDF -->
-		<get src="http://ci.analytical-labs.com/job/Webdetails-CDF/lastSuccessfulBuild/artifact/bi-platform-v2-plugin/dist/marketplace.xml" dest=".tmp/cdf-trunk.xml"/>		
-		<get src="http://ci.pentaho.com/job/pentaho-cdf/lastSuccessfulBuild/artifact/bi-platform-v2-plugin/dist/marketplace.xml" dest=".tmp/cdf-trunk5.xml"/>				
+		<get src="http://ci.analytical-labs.com/job/Webdetails-CDF/lastSuccessfulBuild/artifact/bi-platform-v2-plugin/dist/marketplace.xml" dest=".tmp/pentaho-cdf-trunk.xml"/>		
+		<get src="http://ci.pentaho.com/job/pentaho-cdf/lastSuccessfulBuild/artifact/bi-platform-v2-plugin/dist/marketplace.xml" dest=".tmp/pentaho-cdf-trunk5.xml"/>				
 
         <!-- CDE  -->
-		<get src="http://ci.analytical-labs.com/job/Webdetails-CDE/lastSuccessfulBuild/artifact/cde-pentaho/dist/marketplace.xml" dest=".tmp/cde-trunk.xml"/>				
-		<get src="http://ci.pentaho.com/job/webdetails-cde-5.0/lastSuccessfulBuild/artifact/cde-pentaho5/dist/marketplace.xml" dest=".tmp/cde-trunk5.xml"/>						
+		<get src="http://ci.analytical-labs.com/job/Webdetails-CDE/lastSuccessfulBuild/artifact/cde-pentaho/dist/marketplace.xml" dest=".tmp/pentaho-cdf-dd-trunk.xml"/>				
+		<get src="http://ci.pentaho.com/job/webdetails-cde-5.0/lastSuccessfulBuild/artifact/cde-pentaho5/dist/marketplace.xml" dest=".tmp/pentaho-cdf-dd-trunk5.xml"/>						
 
         <!-- CDV -->
 		<get src="http://ci.pentaho.com/job/pentaho-cdv-pentaho/lastSuccessfulBuild/artifact/cdv-pentaho/dist/marketplace.xml" dest=".tmp/cdv-trunk.xml"/>				
@@ -78,10 +78,10 @@
         <get src="http://ci.pentaho.com/job/Sparkl-4.x/lastSuccessfulBuild/artifact/dist/marketplace.xml" dest=".tmp/sparkl-trunk.xml"/>
         <get src="http://ci.pentaho.com/job/Sparkl/lastSuccessfulBuild/artifact/dist/marketplace.xml" dest=".tmp/sparkl-trunk5.xml"/>        
         
-        <!-- Marketplace -->
+        <!-- Marketplace 
         <get src="http://ci.pentaho.com/job/marketplace-4.8/lastSuccessfulBuild/artifact/dist/marketplace.xml" dest=".tmp/marketplace-trunk.xml"/>
         <get src="http://ci.pentaho.com/job/marketplace/lastSuccessfulBuild/artifact/dist/marketplace.xml" dest=".tmp/marketplace-trunk5.xml"/>
-
+-->
 
         <git command="clone">
             <args>
@@ -91,13 +91,6 @@
         </git>
 
 
-<!--
-		<git command="checkout">
-			<args>
-				<arg value="metadata" />
-			</args>
-		</git>
--->
 
     <for list="${projects}" param="proj">
       <sequential>
@@ -125,7 +118,6 @@
         	 
 		
 
-   <!--
 		<git command="add" dir='../pentaho_metadata'>
 			<args>
 				<arg value="marketplace.xml" />
@@ -142,11 +134,10 @@
 	
 	<git command="push"  dir='../pentaho_metadata'>
     </git>
-	-->	
 		
 		<!--Delete .tmp folder-->
 		<delete dir='.tmp'/>
-		<!-- <delete dir='../pentaho_metadata'/>  -->
+		<delete dir='../pentaho_metadata'/>  
 	</target>
 
 
