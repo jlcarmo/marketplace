@@ -23,8 +23,8 @@
 
     <property name="projects" value="cda,cgg,pentaho-cdf,pentaho-cdf-dd,cdv,sparkl" description="Projects that already have a Pentaho 5 version"/>
 
-<!--    <property name="projects-4-only" value="cdc,cdb" description="Projects that do not have a Pentaho 5 version"/>     -->
-    <property name="projects-4-only" value="" description="Projects that do not have a Pentaho 5 version"/> 
+<!--   <property name="projects-4-only" value="cdc,cdb" description="Projects that do not have a Pentaho 5 version"/>    -->
+     <property name="projects-4-only" value="" description="Projects that do not have a Pentaho 5 version"/>  
 
 	<macrodef name="git">
 		<attribute name="command" />
@@ -127,17 +127,17 @@
 
 		<git command="commit"  dir='../pentaho_metadata'>
 			<args>
-				<arg value="-am 'New version of plugin metadata'" />
+				<arg value="-am 'New version of plugin metadata' --author=Pedro Vale&lt;pedro.m.vale@gmail.com>" />
 			</args>
 		</git>
 	
 	
 	<git command="push"  dir='../pentaho_metadata'>
     </git>
-		
+	
 		<!--Delete .tmp folder-->
 		<delete dir='.tmp'/>
-		<delete dir='../pentaho_metadata'/>  
+		<delete dir='../pentaho_metadata'/>   
 	</target>
 
 
