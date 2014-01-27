@@ -127,14 +127,15 @@
 
 		<git command="commit"  dir='../pentaho_metadata'>
 			<args>
-				<arg value="-am 'New version of plugin metadata' --author=Pedro Vale&lt;pedro.m.vale@gmail.com>" />
+				<arg value="--author='Pedro Vale &lt;pedro.m.vale@gmail.com>'" /> 			
+				<arg value="-am 'New version of plugin metadata'" />
 			</args>
 		</git>
 	
-	
+	<!--
 	<git command="push"  dir='../pentaho_metadata'>
     </git>
-	
+	-->
 		<!--Delete .tmp folder-->
 		<delete dir='.tmp'/>
 		<delete dir='../pentaho_metadata'/>   
