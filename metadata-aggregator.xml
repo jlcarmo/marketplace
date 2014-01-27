@@ -132,10 +132,10 @@
 			</args>
 		</git>
 	
-	<!--
+	
 	<git command="push"  dir='../pentaho_metadata'>
     </git>
-	-->
+	
 		<!--Delete .tmp folder-->
 		<delete dir='.tmp'/>
 		<delete dir='../pentaho_metadata'/>   
