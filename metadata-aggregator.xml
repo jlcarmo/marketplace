@@ -83,6 +83,8 @@
         <get src="http://ci.pentaho.com/job/marketplace/lastSuccessfulBuild/artifact/dist/marketplace.xml" dest=".tmp/marketplace-trunk5.xml"/>
 -->
 
+		<delete dir='../pentaho_metadata' failonerror="false"/>
+
         <git command="clone">
             <args>
                 <arg value='git@github.com:pentaho/marketplace-metadata.git' />
