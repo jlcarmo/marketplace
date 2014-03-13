@@ -21,7 +21,7 @@
             
             </taskdef>
 
-    <property name="projects" value="cda,cgg,pentaho-cdf,pentaho-cdf-dd,cdv,sparkl" description="Projects that already have a Pentaho 5 version"/>
+    <property name="projects" value="cda,cgg,pentaho-cdf,pentaho-cdf-dd,cdv,sparkl,cfr" description="Projects that already have a Pentaho 5 version"/>
 
 <!--   <property name="projects-4-only" value="cdc,cdb" description="Projects that do not have a Pentaho 5 version"/>    -->
      <property name="projects-4-only" value="" description="Projects that do not have a Pentaho 5 version"/>  
@@ -77,6 +77,12 @@
         <!-- Sparkl -->
         <get src="http://ci.pentaho.com/job/Sparkl-4.x/lastSuccessfulBuild/artifact/dist/marketplace.xml" dest=".tmp/sparkl-trunk.xml"/>
         <get src="http://ci.pentaho.com/job/Sparkl/lastSuccessfulBuild/artifact/dist/marketplace.xml" dest=".tmp/sparkl-trunk5.xml"/>        
+
+        <!-- CFR -->
+        <get src="http://ci.pentaho.com/job/pentaho-cfr-pentaho/lastSuccessfulBuild/artifact/cfr-pentaho/dist/marketplace.xml" dest=".tmp/cfr-trunk.xml"/>
+        <get src="http://ci.pentaho.com/job/pentaho-cfr/lastSuccessfulBuild/artifact/cfr-pentaho5/dist/marketplace.xml" dest=".tmp/cfr-trunk5.xml"/>        
+
+
         
         <!-- Marketplace 
         <get src="http://ci.pentaho.com/job/marketplace-4.8/lastSuccessfulBuild/artifact/dist/marketplace.xml" dest=".tmp/marketplace-trunk.xml"/>
@@ -135,9 +141,11 @@
 		</git>
 	
 	
-	<git command="push"  dir='../pentaho_metadata'>
-    </git>
+
 	
+	    <git command="push"  dir='../pentaho_metadata'>
+        </git>
+
 		<!--Delete .tmp folder-->
 		<delete dir='.tmp'/>
 		<delete dir='../pentaho_metadata'/>   
