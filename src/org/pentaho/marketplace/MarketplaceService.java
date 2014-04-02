@@ -21,6 +21,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.StringReader;
+import java.lang.reflect.Method;
 import java.net.URLClassLoader;
 import java.util.Date;
 import java.util.HashMap;
@@ -76,6 +77,7 @@ public class MarketplaceService {
 
     public static final String PLUGIN_NAME = "marketplace";
     public static final String UNAUTORIZED_ACCESS = "Unauthorized Access. Your Pentaho roles do not allow you to make changes to plugins.";
+    public static final String CLOSE_METHOD_NAME = "close";
     private XPath xpath;
 
     public MarketplaceService() {
@@ -175,16 +177,18 @@ public class MarketplaceService {
         try {
           URLClassLoader cl1 = (URLClassLoader) cl;
           Util.closeURLClassLoader( cl1 );
-          cl1.close();
-        } catch ( IOException ioe ) {
-          logger.error(  "Unable to close class loader for plugin. Will try uninstalling plugin anyway", ioe );
+          Method closeMethod = cl1.getClass().getMethod(MarketplaceService.CLOSE_METHOD_NAME);
+          closeMethod.invoke(cl1);
         } catch ( Throwable  e ) {
           if (e instanceof NoSuchMethodException) {
             logger.debug( "Probably running in java 6 so close method on URLClassLoader is not available" );
-          } else
-            logger.error( "Error while closing class loader", e );
+          } else if (e instanceof IOException) {
+              logger.error("Unable to close class loader for plugin. Will try uninstalling plugin anyway", e);
+          }
+          else {
+              logger.error("Error while closing class loader", e);
+          }
         }
-
       }
     }
     
@@ -493,7 +497,7 @@ public class MarketplaceService {
      * This method determines the installed version of a plugin.  If the plugin doesn't define a version correctly, it returns "Unknown".
      * This method makes the assumption that the plugin id also equals the plugin folder name.
      *
-     * @param pluginId the plugin id related to the version.
+     * @param plugin the plugin id related to the version.
      */
     protected String discoverInstalledVersion(Plugin plugin) {
 
