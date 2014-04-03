@@ -13,18 +13,18 @@
       This build file is used to create the Pentaho Marketplace Metadata plugin based on each plugin distribution file
     </description>
 
-	<taskdef name="xmltask" 
+	<taskdef name="xmltask"
             classname="com.oopsconsultancy.xmltask.ant.XmlTask">
-            
-		 <classpath path="xmltask.jar" />            
-            
-            
+
+		 <classpath path="xmltask.jar" />
+
+
             </taskdef>
 
     <property name="projects" value="cda,cgg,pentaho-cdf,pentaho-cdf-dd,cdv,sparkl,cfr" description="Projects that already have a Pentaho 5 version"/>
 
 <!--   <property name="projects-4-only" value="cdc,cdb" description="Projects that do not have a Pentaho 5 version"/>    -->
-     <property name="projects-4-only" value="" description="Projects that do not have a Pentaho 5 version"/>  
+     <property name="projects-4-only" value="" description="Projects that do not have a Pentaho 5 version"/>
 
 	<macrodef name="git">
 		<attribute name="command" />
@@ -45,46 +45,46 @@
 
 
 	<target name="build" depends="install-antcontrib">
-	
 
-	
+
+
 		<!-- CDA -->
-		<get src="http://ci.pentaho.com/job/pentaho-cda-pentaho/lastSuccessfulBuild/artifact/cda-pentaho/dist/marketplace.xml" dest=".tmp/cda-trunk.xml"/>				
-        <get src="http://ci.pentaho.com/job/pentaho-cda/lastSuccessfulBuild/artifact/cda-pentaho5/dist/marketplace.xml" dest=".tmp/cda-trunk5.xml"/>						
+		<get src="http://ci.pentaho.com/job/pentaho-cda-pentaho/lastSuccessfulBuild/artifact/cda-pentaho/dist/marketplace.xml" dest=".tmp/cda-trunk.xml"/>
+        <get src="http://ci.pentaho.com/job/pentaho-cda/lastSuccessfulBuild/artifact/cda-pentaho5/dist/marketplace.xml" dest=".tmp/cda-trunk5.xml"/>
 
         <!-- CGG -->
 		<get src="http://ci.pentaho.com/job/pentaho-cgg-pentaho/lastSuccessfulBuild/artifact/cgg-pentaho/dist/marketplace.xml" dest=".tmp/cgg-trunk.xml"/>
-		<get src="http://ci.pentaho.com/job/webdetails-cgg/lastSuccessfulBuild/artifact/dist/marketplace.xml" dest=".tmp/cgg-trunk5.xml"/>		
+		<get src="http://ci.pentaho.com/job/pentaho-cgg/lastSuccessfulBuild/artifact/cgg-pentaho5/dist/marketplace.xml" dest=".tmp/cgg-trunk5.xml"/>
 
         <!-- CDF -->
-		<get src="http://ci.analytical-labs.com/job/Webdetails-CDF/lastSuccessfulBuild/artifact/bi-platform-v2-plugin/dist/marketplace.xml" dest=".tmp/pentaho-cdf-trunk.xml"/>		
-		<get src="http://ci.pentaho.com/job/pentaho-cdf/lastSuccessfulBuild/artifact/bi-platform-v2-plugin/dist/marketplace.xml" dest=".tmp/pentaho-cdf-trunk5.xml"/>				
+		<get src="http://ci.analytical-labs.com/job/Webdetails-CDF/lastSuccessfulBuild/artifact/bi-platform-v2-plugin/dist/marketplace.xml" dest=".tmp/pentaho-cdf-trunk.xml"/>
+		<get src="http://ci.pentaho.com/job/pentaho-cdf/lastSuccessfulBuild/artifact/bi-platform-v2-plugin/dist/marketplace.xml" dest=".tmp/pentaho-cdf-trunk5.xml"/>
 
         <!-- CDE  -->
-		<get src="http://ci.analytical-labs.com/job/Webdetails-CDE/lastSuccessfulBuild/artifact/cde-pentaho/dist/marketplace.xml" dest=".tmp/pentaho-cdf-dd-trunk.xml"/>				
-		<get src="http://ci.pentaho.com/job/webdetails-cde-5.0/lastSuccessfulBuild/artifact/cde-pentaho5/dist/marketplace.xml" dest=".tmp/pentaho-cdf-dd-trunk5.xml"/>						
+		<get src="http://ci.analytical-labs.com/job/Webdetails-CDE/lastSuccessfulBuild/artifact/cde-pentaho/dist/marketplace.xml" dest=".tmp/pentaho-cdf-dd-trunk.xml"/>
+		<get src="http://ci.pentaho.com/job/webdetails-cde-5.0/lastSuccessfulBuild/artifact/cde-pentaho5/dist/marketplace.xml" dest=".tmp/pentaho-cdf-dd-trunk5.xml"/>
 
         <!-- CDV -->
-		<get src="http://ci.pentaho.com/job/pentaho-cdv-pentaho/lastSuccessfulBuild/artifact/cdv-pentaho/dist/marketplace.xml" dest=".tmp/cdv-trunk.xml"/>				
-		<get src="http://ci.pentaho.com/job/pentaho-cdv/lastSuccessfulBuild/artifact/cdv-pentaho5/dist/marketplace.xml" dest=".tmp/cdv-trunk5.xml"/>						
+		<get src="http://ci.pentaho.com/job/pentaho-cdv-pentaho/lastSuccessfulBuild/artifact/cdv-pentaho/dist/marketplace.xml" dest=".tmp/cdv-trunk.xml"/>
+		<get src="http://ci.pentaho.com/job/pentaho-cdv/lastSuccessfulBuild/artifact/cdv-pentaho5/dist/marketplace.xml" dest=".tmp/cdv-trunk5.xml"/>
 
         <!-- CDB -->
-		<get src="http://ci.analytical-labs.com/job/Webdetails-CDB/lastSuccessfulBuild/artifact/dist/marketplace.xml" dest=".tmp/cdb-trunk.xml"/>				
+		<get src="http://ci.analytical-labs.com/job/Webdetails-CDB/lastSuccessfulBuild/artifact/dist/marketplace.xml" dest=".tmp/cdb-trunk.xml"/>
 
         <!-- CDC -->
-		<get src="http://ci.analytical-labs.com/job/Webdetails-CDC/lastSuccessfulBuild/artifact/dist/marketplace.xml" dest=".tmp/cdc-trunk.xml"/>				
+		<get src="http://ci.analytical-labs.com/job/Webdetails-CDC/lastSuccessfulBuild/artifact/dist/marketplace.xml" dest=".tmp/cdc-trunk.xml"/>
 
         <!-- Sparkl -->
         <get src="http://ci.pentaho.com/job/Sparkl-4.x/lastSuccessfulBuild/artifact/dist/marketplace.xml" dest=".tmp/sparkl-trunk.xml"/>
-        <get src="http://ci.pentaho.com/job/Sparkl/lastSuccessfulBuild/artifact/dist/marketplace.xml" dest=".tmp/sparkl-trunk5.xml"/>        
+        <get src="http://ci.pentaho.com/job/Sparkl/lastSuccessfulBuild/artifact/dist/marketplace.xml" dest=".tmp/sparkl-trunk5.xml"/>
 
         <!-- CFR -->
         <get src="http://ci.pentaho.com/job/pentaho-cfr-pentaho/lastSuccessfulBuild/artifact/cfr-pentaho/dist/marketplace.xml" dest=".tmp/cfr-trunk.xml"/>
-        <get src="http://ci.pentaho.com/job/pentaho-cfr/lastSuccessfulBuild/artifact/cfr-pentaho5/dist/marketplace.xml" dest=".tmp/cfr-trunk5.xml"/>        
+        <get src="http://ci.pentaho.com/job/pentaho-cfr/lastSuccessfulBuild/artifact/cfr-pentaho5/dist/marketplace.xml" dest=".tmp/cfr-trunk5.xml"/>
 
 
-        
-        <!-- Marketplace 
+
+        <!-- Marketplace
         <get src="http://ci.pentaho.com/job/marketplace-4.8/lastSuccessfulBuild/artifact/dist/marketplace.xml" dest=".tmp/marketplace-trunk.xml"/>
         <get src="http://ci.pentaho.com/job/marketplace/lastSuccessfulBuild/artifact/dist/marketplace.xml" dest=".tmp/marketplace-trunk5.xml"/>
 -->
@@ -107,7 +107,7 @@
         <echo level="info">###############################</echo>
         <antcall target="replace-p5">
             <param name="proj" value="@{proj}" />
-        </antcall>        
+        </antcall>
 
       </sequential>
     </for>
@@ -119,12 +119,12 @@
         <echo level="info">###############################</echo>
         <antcall target="replace">
             <param name="proj" value="@{proj}" />
-        </antcall>        
+        </antcall>
       </sequential>
     </for>
-        	 
-        	 
-		
+
+
+
 
 		<git command="add" dir='../pentaho_metadata'>
 			<args>
@@ -135,50 +135,50 @@
 
 		<git command="commit"  dir='../pentaho_metadata'>
 			<args>
-				<arg value="--author='Pedro Vale &lt;pedro.m.vale@gmail.com>'" /> 			
+				<arg value="--author='Pedro Vale &lt;pedro.m.vale@gmail.com>'" />
 				<arg value="-am 'New version of plugin metadata'" />
 			</args>
 		</git>
-	
-	
 
-	
+
+
+
 	    <git command="push"  dir='../pentaho_metadata'>
         </git>
 
 		<!--Delete .tmp folder-->
 		<delete dir='.tmp'/>
-		<delete dir='../pentaho_metadata'/>   
+		<delete dir='../pentaho_metadata'/>
 	</target>
 
 
     <target name="replace">
-		 <xmltask source="../pentaho_metadata/marketplace.xml" dest="../pentaho_metadata/marketplace.xml" encoding='UTF-8'> 
-		   <replace path="/market/market_entry[id='${proj}']/versions/version[branch='TRUNK']" 
-        	 withFile=".tmp/${proj}-trunk.xml"/> 
+		 <xmltask source="../pentaho_metadata/marketplace.xml" dest="../pentaho_metadata/marketplace.xml" encoding='UTF-8'>
+		   <replace path="/market/market_entry[id='${proj}']/versions/version[branch='TRUNK']"
+        	 withFile=".tmp/${proj}-trunk.xml"/>
 <!--
-		   <replace path="/market/market_entry[id='${proj}']/versions/version[branch='STABLE']" 
-        	 withFile=".tmp/${proj}-release.xml"/> 
--->        	 
+		   <replace path="/market/market_entry[id='${proj}']/versions/version[branch='STABLE']"
+        	 withFile=".tmp/${proj}-release.xml"/>
+-->
         </xmltask>
     </target>
 
 
     <target name="replace-p5">
-		 <xmltask source="../pentaho_metadata/marketplace.xml" dest="../pentaho_metadata/marketplace.xml" encoding='UTF-8'> 
-		   <replace path="/market/market_entry[id='${proj}']/versions/version[branch='TRUNK' and max_parent_version='4.8']" 
-        	 withFile=".tmp/${proj}-trunk.xml"/> 
-		   <replace path="/market/market_entry[id='${proj}']/versions/version[branch='TRUNK' and min_parent_version='5.0']" 
-        	 withFile=".tmp/${proj}-trunk5.xml"/>         	 
+		 <xmltask source="../pentaho_metadata/marketplace.xml" dest="../pentaho_metadata/marketplace.xml" encoding='UTF-8'>
+		   <replace path="/market/market_entry[id='${proj}']/versions/version[branch='TRUNK' and max_parent_version='4.8']"
+        	 withFile=".tmp/${proj}-trunk.xml"/>
+		   <replace path="/market/market_entry[id='${proj}']/versions/version[branch='TRUNK' and min_parent_version='5.0']"
+        	 withFile=".tmp/${proj}-trunk5.xml"/>
 
-<!--		   <replace path="/market/market_entry[id='${proj}']/versions/version[branch='STABLE']" 
-        	 withFile=".tmp/${proj}-release.xml"/>     
+<!--		   <replace path="/market/market_entry[id='${proj}']/versions/version[branch='STABLE']"
+        	 withFile=".tmp/${proj}-release.xml"/>
         	 -->
-        </xmltask>        	 
+        </xmltask>
     </target>
-    
-    
-    
+
+
+
   <target name="install-antcontrib" depends="init, antcontrib.download-check">
     <taskdef resource="net/sf/antcontrib/antlib.xml">
       <classpath>
@@ -192,7 +192,7 @@
 
   <!--=======================================================================
       antcontrib.download-check
-      
+
       Fetches ant-contrib from sourceforge if it is not already present
       ====================================================================-->
   <target name="antcontrib.download-check">
@@ -214,7 +214,7 @@
 
   <!--=======================================================================
       antcontrib.download
-      
+
       Fetches ant-contrib from sourceforge
       ====================================================================-->
   <target name="antcontrib.download" unless="antcontrib.available">
@@ -232,6 +232,6 @@
       </fileset>
     </copy>
   </target>
-    
+
 
 </project>
